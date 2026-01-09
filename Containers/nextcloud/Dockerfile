@@ -138,8 +138,8 @@ RUN set -ex; \
     } > /usr/local/etc/php/conf.d/nextcloud.ini; \
     \
     { \
-        echo 'session.save_handler = redis'; \
-        echo 'session.save_path = "tcp://${REDIS_HOST}:${REDIS_PORT}?database=${REDIS_DB_INDEX}${REDIS_USER_AUTH}&auth[]=${REDIS_HOST_PASSWORD}"'; \
+        echo 'session.save_handler = rediscluster'; \
+        echo 'session.save_path = "seed[]=${REDIS_HOST}:${REDIS_PORT}&seed[]=${REDIS_HOST_2}:${REDIS_PORT_2}&seed[]=${REDIS_HOST_3}:${REDIS_PORT_3}&seed[]=${REDIS_HOST_4}:${REDIS_PORT_4}&seed[]=${REDIS_HOST_5}:${REDIS_PORT_5}&seed[]=${REDIS_HOST_6}:${REDIS_PORT_6}&seed[]=${REDIS_HOST_7}:${REDIS_PORT_7}&seed[]=${REDIS_HOST_8}:${REDIS_PORT_8}&seed[]=${REDIS_HOST_9}:${REDIS_PORT_9}&timeout=0&read_timeout=0&failover=error&persistent=1&auth=${REDIS_HOST_PASSWORD}&stream[verify_peer]=0"'; \
         echo 'redis.session.locking_enabled = 1'; \
         echo 'redis.session.lock_retries = -1'; \
         echo 'redis.session.lock_wait_time = 10000'; \
