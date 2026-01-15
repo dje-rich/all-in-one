@@ -83,6 +83,7 @@ elif [ -f "/nextcloud/data/certificates/MYSQL" ]; then
 fi
 
 # Set sensitive values as env
+# todo
 export DATABASE_URL="$DATABASE_TYPE://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB$CERT_OPTIONS"
 export REDIS_URL="redis://$REDIS_USER:$REDIS_HOST_PASSWORD@$REDIS_HOST:$REDIS_PORT/$REDIS_DB_INDEX"
 
