@@ -29,17 +29,17 @@ if (!getenv('REDIS_HOST_2')) {
       'timeout' => 0.0,
       'read_timeout' => 0.0,
       'failover_mode' => \RedisCluster::FAILOVER_ERROR,
-      'seeds' => array(
-        getenv('REDIS_HOST') . ':' . (string)getenv('REDIS_PORT'),
-        getenv('REDIS_HOST_2') . ':' . (string)getenv('REDIS_PORT_2'),
-        getenv('REDIS_HOST_3') . ':' . (string)getenv('REDIS_PORT_3'),
-        getenv('REDIS_HOST_4') . ':' . (string)getenv('REDIS_PORT_4'),
-        getenv('REDIS_HOST_5') . ':' . (string)getenv('REDIS_PORT_5'),
-        getenv('REDIS_HOST_6') . ':' . (string)getenv('REDIS_PORT_6'),
-        getenv('REDIS_HOST_7') . ':' . (string)getenv('REDIS_PORT_7'),
-        getenv('REDIS_HOST_8') . ':' . (string)getenv('REDIS_PORT_8'),
-        getenv('REDIS_HOST_9') . ':' . (string)getenv('REDIS_PORT_9'),
-      ),
+      'seeds' => array_values(array_filter(array(
+        (getenv('REDIS_HOST') && getenv('REDIS_PORT')) ? (getenv('REDIS_HOST') . ':' . (string)getenv('REDIS_PORT')) : null,
+        (getenv('REDIS_HOST_2') && getenv('REDIS_PORT_2')) ? (getenv('REDIS_HOST_2') . ':' . (string)getenv('REDIS_PORT_2')) : null,
+        (getenv('REDIS_HOST_3') && getenv('REDIS_PORT_3')) ? (getenv('REDIS_HOST_3') . ':' . (string)getenv('REDIS_PORT_3')) : null,
+        (getenv('REDIS_HOST_4') && getenv('REDIS_PORT_4')) ? (getenv('REDIS_HOST_4') . ':' . (string)getenv('REDIS_PORT_4')) : null,
+        (getenv('REDIS_HOST_5') && getenv('REDIS_PORT_5')) ? (getenv('REDIS_HOST_5') . ':' . (string)getenv('REDIS_PORT_5')) : null,
+        (getenv('REDIS_HOST_6') && getenv('REDIS_PORT_6')) ? (getenv('REDIS_HOST_6') . ':' . (string)getenv('REDIS_PORT_6')) : null,
+        (getenv('REDIS_HOST_7') && getenv('REDIS_PORT_7')) ? (getenv('REDIS_HOST_7') . ':' . (string)getenv('REDIS_PORT_7')) : null,
+        (getenv('REDIS_HOST_8') && getenv('REDIS_PORT_8')) ? (getenv('REDIS_HOST_8') . ':' . (string)getenv('REDIS_PORT_8')) : null,
+        (getenv('REDIS_HOST_9') && getenv('REDIS_PORT_9')) ? (getenv('REDIS_HOST_9') . ':' . (string)getenv('REDIS_PORT_9')) : null,
+      ))),
     ),
   );
 
